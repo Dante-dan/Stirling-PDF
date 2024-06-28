@@ -21,6 +21,7 @@
   </head>
 
   <body>
+  <th:block th:insert="~{fragments/preBody.html :: preBody}"></th:block>
     <div id="page-container">
       <div id="content-wrap">
         <th:block th:insert="~{fragments/navbar.html :: navbar}"></th:block>
@@ -164,7 +165,7 @@
                         class="btn btn-danger"
                         th:text="#{delete}"
                       ></button>
-                      
+
                       <button
                         id="saveBrowserPipelineBtn"
                         class="btn btn-success"

@@ -64,6 +64,13 @@
 
     <!-- Google MD Icons -->
     <link rel="stylesheet" th:href="@{'/css/theme/font.css'}">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NT3P3NR5');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- Help Modal -->
     <link rel="stylesheet" th:href="@{'/css/errorBanner.css'}">
@@ -81,19 +88,19 @@
 
            // Find the file input within the form
           var fileInput = $('input[type="file"]');
-          
+
           // Find the closest enclosing form of the file input
           var form = fileInput.closest('form');
-          
+
           // Find the submit button within the form
           var submitButton = form.find('button[type="submit"], input[type="submit"]');
-          
+
           const boredWaitingText = /*[[#{bored}]]*/ 'Bored Waiting?';
           const downloadCompleteText = /*[[#{downloadComplete}]]*/ 'Download Complete';
           window.downloadCompleteText = downloadCompleteText;
           // Create the 'show-game-btn' button
           var gameButton = $('<button type="button" class="btn btn-primary" id="show-game-btn" style="display:none;">' + boredWaitingText + '</button><br><br>');
-          
+
           // Insert the 'show-game-btn' just above the submit button
           submitButton.before(gameButton);
 
