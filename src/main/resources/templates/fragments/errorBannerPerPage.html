@@ -1,6 +1,6 @@
 <th:block th:fragment="errorBannerPerPage">
           <div id="errorContainer" class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
-            <h4 class="alert-heading" th:text="#{error}"></h4>
+            <div class="alert-heading" th:text="#{error}"></div>
             <p></p>
             <button type="button" class="btn btn-danger" onclick="toggletrace()" th:text="#{error.showStack}"></button>
             <button type="button" class="btn btn-secondary" onclick="copytrace()" th:text="#{error.copyStack}"></button>
@@ -22,7 +22,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document" id="helpModalDialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="helpModalLabel" th:text="#{help}"></h5>
+                  <div class="rem-1_25 modal-title" id="helpModalLabel" th:text="#{help}"></div>
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="dismissError()">
                     <span class="material-symbols-rounded">
                       close
@@ -32,10 +32,10 @@
                 <div class="modal-body">
                   <div class="container">
                     <div id="support-section">
-                      <h1 class="display-2" th:text="#{oops}"></h1>
+                      <div class="display-2" th:text="#{oops}"></div>
                       <p class="lead" th:text="#{error.sorry}"></p>
                       <br>
-                      <h2 th:text="#{error.needHelp}"></h2>
+                      <div class="rem-1_325" th:text="#{error.needHelp}"></div>
                       <p th:text="#{error.contactTip}"></p>
                       <div id="button-group">
                         <a href="https://github.com/Stirling-Tools/Stirling-PDF/issues" id="github-button" target="_blank" th:text="#{error.githubSubmit}"></a>
@@ -49,5 +49,5 @@
               </div>
             </div>
           </div>
-          <script th:src="@{'/js/errorBanner.js'}"></script>
+          <script th:src="@{'/js/errorBanner.js'}" async></script>
 </th:block>

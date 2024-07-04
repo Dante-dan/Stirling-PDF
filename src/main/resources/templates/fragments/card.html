@@ -1,4 +1,4 @@
-<div th:fragment="card" class="feature-card hidden" th:id="${id}" th:if="${@endpointConfiguration.isEndpointEnabled(cardLink)}"
+<div th:fragment="card" class="feature-card" th:id="${id}" th:if="${@endpointConfiguration.isEndpointEnabled(cardLink)}"
   th:data-bs-tags="${tags}">
   <a th:href="${cardLink}">
     <div class="d-flex align-items-center">
@@ -8,7 +8,7 @@
       </div>
 
       <div id="tool-text">
-        <h5 class="card-title" th:text="${cardTitle}"></h5>
+        <h3 class="card-title" th:text="${cardTitle}"></h3>
         <p class="card-text" th:text="${cardText}"></p>
       </div>
 

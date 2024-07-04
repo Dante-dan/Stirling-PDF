@@ -917,3 +917,15 @@ textarea.form-control {
   background-color: var(--md-sys-color-error-container);
   border-color: transparent;
 }
+
+.rem-1 {
+  font-size: 1rem;
+}
+
+.rem-1_25 {
+  font-size: 1.25rem;
+}
+
+.rem-1_325 {
+  font-size: calc(1.325rem + .9vw);
+}

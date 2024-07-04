@@ -37,7 +37,7 @@
                     <div class="row">
                       <!-- Page tools menu items -->
                       <div class="col-lg-2 col-sm-6 py px-xl-1 px-2">
-                        <h6 class="menu-title" th:text="#{navbar.sections.organize}"></h6>
+                        <div class="menu-title rem-1" th:text="#{navbar.sections.organize}"></div>
                         <div
                           th:replace="~{fragments/navbarEntry :: navbarEntry ('compress-pdf', 'zoom_in_map', 'home.compressPdfs.title', 'home.compressPdfs.desc', 'compressPdfs.tags', 'advance')}">
                         </div>
@@ -74,7 +74,7 @@
                       </div>
                       <!-- Convert to PDF menu items -->
                       <div class="col-lg-2 col-sm-6 py px-xl-1 px-2">
-                        <h6 class="menu-title" th:text="#{navbar.sections.convertTo}"></h6>
+                        <div class="menu-title rem-1" th:text="#{navbar.sections.convertTo}"></div>
                         <div
                           th:replace="~{fragments/navbarEntry :: navbarEntry ('img-to-pdf', 'image', 'home.imageToPdf.title', 'home.imageToPdf.desc', 'imageToPdf.tags', 'image')}">
                         </div>
@@ -96,7 +96,7 @@
                       </div>
                       <!-- Convert from PDF menu items -->
                       <div class="col-lg-2 col-sm-6 py px-xl-1 px-2">
-                        <h6 class="menu-title" th:text="#{navbar.sections.convertFrom}"></h6>
+                        <div class="menu-title rem-1" th:text="#{navbar.sections.convertFrom}"></div>
                         <div
                           th:replace="~{fragments/navbarEntry :: navbarEntry ('pdf-to-img', 'image', 'home.pdfToImage.title', 'home.pdfToImage.desc', 'pdfToImage.tags', 'image')}">
                         </div>
@@ -127,7 +127,7 @@
                       </div>
                       <!-- Security menu items -->
                       <div class="col-lg-2 col-sm-6 py px-xl-1 px-2">
-                        <h6 class="menu-title" th:text="#{navbar.sections.security}"></h6>
+                        <div class="menu-title rem-1" th:text="#{navbar.sections.security}"></div>
                         <div
                           th:replace="~{fragments/navbarEntry :: navbarEntry ('sign', 'signature', 'home.sign.title', 'home.sign.desc', 'sign.tags', 'sign')}">
                         </div>
@@ -161,7 +161,7 @@
                       </div>
                       <!-- View & Edit menu items -->
                       <div class="col-lg-2 col-sm-6 py px-xl-1 px-2">
-                        <h6 class="menu-title" th:text="#{navbar.sections.edit}"></h6>
+                        <div class="menu-title rem-1" th:text="#{navbar.sections.edit}"></div>
                         <div
                           th:replace="~{fragments/navbarEntry :: navbarEntry ('view-pdf', 'menu_book', 'home.viewPdf.title', 'home.viewPdf.desc', 'viewPdf.tags', 'other')}">
                         </div>
@@ -198,7 +198,7 @@
                       </div>
                       <!-- Advance menu items -->
                       <div class="col-lg-2 col-sm-6 py px-xl-1 px-2">
-                        <h6 class="menu-title" th:text="#{navbar.sections.advance}"></h6>
+                        <div class="menu-title rem-1" th:text="#{navbar.sections.advance}"></div>
                         <div
                           th:replace="~{fragments/navbarEntry :: navbarEntry ('multi-tool', 'construction', 'home.multiTool.title', 'home.multiTool.desc', 'multiTool.tags', 'advance')}">
                         </div>
@@ -332,7 +332,7 @@
               </div>
             </div>
           </li>
-          
+
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="material-symbols-rounded">
@@ -363,8 +363,8 @@
         </ul>
       </div>
     </div>
-    <script th:src="@{'/js/favourites.js'}"></script>
-    <script th:src="@{'/js/search.js'}"></script>
+    <script th:src="@{'/js/favourites.js'}" async></script>
+    <script th:src="@{'/js/search.js'}" async></script>
   </nav>
 
   <th:block th:insert="~{fragments/errorBannerPerPage.html :: errorBannerPerPage}"></th:block>
@@ -373,7 +373,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="settingsModalLabel" th:text="#{settings.title}"></h5>
+          <div class="rem-1_25 modal-title" id="settingsModalLabel" th:text="#{settings.title}"></div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             <span class="material-symbols-rounded">
               close
