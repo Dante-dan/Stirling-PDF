@@ -93,4 +93,4 @@ jobs:
       - name: Notify Myself
         # send a notification to $url
         run: |
-          curl -H "x-authority: ${{secrets.AUTH_TOKEN}}" ${{secrets.NOTIFY_URL}}
+          sleep 30 && curl -H "x-authority: ${{secrets.AUTH_TOKEN}}" ${{secrets.NOTIFY_URL}}
