@@ -929,3 +929,9 @@ textarea.form-control {
 .rem-1_325 {
   font-size: calc(1.325rem + .9vw);
 }
+
+.feature-card .material-symbols-rounded.nav-icon {
+  max-width: 56px;
+  max-height: 56px;
+  overflow: hidden;
+}
