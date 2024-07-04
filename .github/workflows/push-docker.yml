@@ -85,8 +85,12 @@ jobs:
           build-args: VERSION_TAG=${{ steps.versionNumber.outputs.versionNumber }}
           platforms: linux/amd64,linux/arm64/v8
 
-
+  notify:
+    needs: push
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
       - name: Notify Myself
         # send a notification to $url
         run: |
-          sleep 3 && curl -H "x-authority: ${{secrets.AUTH_TOKEN}}" ${{secrets.NOTIFY_URL}}
+          curl -H "x-authority: ${{secrets.AUTH_TOKEN}}" ${{secrets.NOTIFY_URL}}
