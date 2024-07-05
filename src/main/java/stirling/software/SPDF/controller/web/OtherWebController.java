@@ -32,7 +32,7 @@ public class OtherWebController {
     public ModelAndView extractImageScansForm(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("misc/extract-image-scans");
         modelAndView.addObject("currentPage", "extract-image-scans");
-        modelAndView.addAttribute("requestURI", request.getRequestURI());
+        modelAndView.addObject("requestURI", request.getRequestURI());
         return modelAndView;
     }
 
@@ -127,7 +127,7 @@ public class OtherWebController {
         ModelAndView modelAndView = new ModelAndView("misc/ocr-pdf");
         List<String> languages = getAvailableTesseractLanguages();
         Collections.sort(languages);
-        modelAndView.addAttribute("requestURI", request.getRequestURI());
+        modelAndView.addObject("requestURI", request.getRequestURI());
         modelAndView.addObject("languages", languages);
         modelAndView.addObject("currentPage", "ocr-pdf");
         return modelAndView;
