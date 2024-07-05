@@ -29,7 +29,7 @@ public class OtherWebController {
 
     @GetMapping("/extract-image-scans")
     @Hidden
-    public ModelAndView extractImageScansForm() {
+    public ModelAndView extractImageScansForm(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("misc/extract-image-scans");
         modelAndView.addObject("currentPage", "extract-image-scans");
         modelAndView.addAttribute("requestURI", request.getRequestURI());
@@ -123,7 +123,7 @@ public class OtherWebController {
 
     @GetMapping("/ocr-pdf")
     @Hidden
-    public ModelAndView ocrPdfPage() {
+    public ModelAndView ocrPdfPage(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("misc/ocr-pdf");
         List<String> languages = getAvailableTesseractLanguages();
         Collections.sort(languages);

@@ -84,7 +84,7 @@ public class ConverterWebController {
 
     @GetMapping("/pdf-to-html")
     @Hidden
-    public ModelAndView pdfToHTML() {
+    public ModelAndView pdfToHTML(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("convert/pdf-to-html");
         modelAndView.addObject("currentPage", "pdf-to-html");
         modelAndView.addAttribute("requestURI", request.getRequestURI());
@@ -93,7 +93,7 @@ public class ConverterWebController {
 
     @GetMapping("/pdf-to-presentation")
     @Hidden
-    public ModelAndView pdfToPresentation() {
+    public ModelAndView pdfToPresentation(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("convert/pdf-to-presentation");
         modelAndView.addAttribute("requestURI", request.getRequestURI());
         modelAndView.addObject("currentPage", "pdf-to-presentation");
@@ -102,7 +102,7 @@ public class ConverterWebController {
 
     @GetMapping("/pdf-to-text")
     @Hidden
-    public ModelAndView pdfToText() {
+    public ModelAndView pdfToText(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("convert/pdf-to-text");
         modelAndView.addAttribute("requestURI", request.getRequestURI());
         modelAndView.addObject("currentPage", "pdf-to-text");
@@ -111,7 +111,7 @@ public class ConverterWebController {
 
     @GetMapping("/pdf-to-word")
     @Hidden
-    public ModelAndView pdfToWord() {
+    public ModelAndView pdfToWord(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("convert/pdf-to-word");
         modelAndView.addAttribute("requestURI", request.getRequestURI());
         modelAndView.addObject("currentPage", "pdf-to-word");
@@ -120,7 +120,7 @@ public class ConverterWebController {
 
     @GetMapping("/pdf-to-xml")
     @Hidden
-    public ModelAndView pdfToXML() {
+    public ModelAndView pdfToXML(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("convert/pdf-to-xml");
         modelAndView.addAttribute("requestURI", request.getRequestURI());
         modelAndView.addObject("currentPage", "pdf-to-xml");
@@ -129,7 +129,7 @@ public class ConverterWebController {
 
     @GetMapping("/pdf-to-csv")
     @Hidden
-    public ModelAndView pdfToCSV() {
+    public ModelAndView pdfToCSV(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("convert/pdf-to-csv");
         modelAndView.addAttribute("requestURI", request.getRequestURI());
         modelAndView.addObject("currentPage", "pdf-to-csv");
