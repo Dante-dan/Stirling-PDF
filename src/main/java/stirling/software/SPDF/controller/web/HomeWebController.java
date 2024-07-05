@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
-import jakarta.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.v3.oas.annotations.Hidden;
 
+import jakarta.servlet.http.HttpServletRequest;
 import stirling.software.SPDF.model.ApplicationProperties;
 import stirling.software.SPDF.model.Dependency;
 
@@ -33,7 +33,7 @@ public class HomeWebController {
 
     @GetMapping("/about")
     @Hidden
-    public String gameForm(Model model, final HTTPServletRequest request) {
+    public String gameForm(Model model, HttpServletRequest request) {
         model.addAttribute("currentPage", "about");
         model.addAttribute("requestURI", request.getRequestURI());
         return "about";
