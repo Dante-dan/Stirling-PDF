@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import jakarta.servlet.http.HttpServletRequest;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,7 +21,8 @@ public class OtherWebController {
 
     @GetMapping("/compress-pdf")
     @Hidden
-    public String compressPdfForm(Model model) {
+    public String compressPdfForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "compress-pdf");
         return "misc/compress-pdf";
     }
@@ -30,68 +32,78 @@ public class OtherWebController {
     public ModelAndView extractImageScansForm() {
         ModelAndView modelAndView = new ModelAndView("misc/extract-image-scans");
         modelAndView.addObject("currentPage", "extract-image-scans");
+        modelAndView.addAttribute("requestURI", request.getRequestURI());
         return modelAndView;
     }
 
     @GetMapping("/show-javascript")
     @Hidden
-    public String extractJavascriptForm(Model model) {
+    public String extractJavascriptForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "show-javascript");
         return "misc/show-javascript";
     }
 
     @GetMapping("/stamp")
     @Hidden
-    public String stampForm(Model model) {
+    public String stampForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "stamp");
         return "misc/stamp";
     }
 
     @GetMapping("/add-page-numbers")
     @Hidden
-    public String addPageNumbersForm(Model model) {
+    public String addPageNumbersForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "add-page-numbers");
         return "misc/add-page-numbers";
     }
 
     @GetMapping("/fake-scan")
     @Hidden
-    public String fakeScanForm(Model model) {
+    public String fakeScanForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "fake-scan");
         return "misc/fake-scan";
     }
 
     @GetMapping("/extract-images")
     @Hidden
-    public String extractImagesForm(Model model) {
+    public String extractImagesForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "extract-images");
         return "misc/extract-images";
     }
 
     @GetMapping("/flatten")
     @Hidden
-    public String flattenForm(Model model) {
+    public String flattenForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "flatten");
         return "misc/flatten";
     }
 
     @GetMapping("/change-metadata")
     @Hidden
-    public String addWatermarkForm(Model model) {
+    public String addWatermarkForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "change-metadata");
         return "misc/change-metadata";
     }
 
     @GetMapping("/compare")
     @Hidden
-    public String compareForm(Model model) {
+    public String compareForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "compare");
         return "misc/compare";
     }
 
     @GetMapping("/print-file")
     @Hidden
-    public String printFileForm(Model model) {
+    public String printFileForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "print-file");
         return "misc/print-file";
     }
@@ -115,6 +127,7 @@ public class OtherWebController {
         ModelAndView modelAndView = new ModelAndView("misc/ocr-pdf");
         List<String> languages = getAvailableTesseractLanguages();
         Collections.sort(languages);
+        modelAndView.addAttribute("requestURI", request.getRequestURI());
         modelAndView.addObject("languages", languages);
         modelAndView.addObject("currentPage", "ocr-pdf");
         return modelAndView;
@@ -122,49 +135,56 @@ public class OtherWebController {
 
     @GetMapping("/add-image")
     @Hidden
-    public String overlayImage(Model model) {
+    public String overlayImage(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "add-image");
         return "misc/add-image";
     }
 
     @GetMapping("/adjust-contrast")
     @Hidden
-    public String contrast(Model model) {
+    public String contrast(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "adjust-contrast");
         return "misc/adjust-contrast";
     }
 
     @GetMapping("/repair")
     @Hidden
-    public String repairForm(Model model) {
+    public String repairForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "repair");
         return "misc/repair";
     }
 
     @GetMapping("/remove-blanks")
     @Hidden
-    public String removeBlanksForm(Model model) {
+    public String removeBlanksForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "remove-blanks");
         return "misc/remove-blanks";
     }
 
     @GetMapping("/remove-annotations")
     @Hidden
-    public String removeAnnotationsForm(Model model) {
+    public String removeAnnotationsForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "remove-annotations");
         return "misc/remove-annotations";
     }
 
     @GetMapping("/auto-crop")
     @Hidden
-    public String autoCropForm(Model model) {
+    public String autoCropForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "auto-crop");
         return "misc/auto-crop";
     }
 
     @GetMapping("/auto-rename")
     @Hidden
-    public String autoRenameForm(Model model) {
+    public String autoRenameForm(Model model, HttpServletRequest request) {
+        model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("currentPage", "auto-rename");
         return "misc/auto-rename";
     }

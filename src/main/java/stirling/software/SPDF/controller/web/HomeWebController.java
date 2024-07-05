@@ -36,12 +36,13 @@ public class HomeWebController {
     public String gameForm(Model model, HttpServletRequest request) {
         model.addAttribute("currentPage", "about");
         model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("title", "Free PDF Online Tools");
         return "about";
     }
 
     @GetMapping("/licenses")
     @Hidden
-    public String licensesForm(Model model) {
+    public String licensesForm(Model model, HttpServletRequest request) {
         model.addAttribute("currentPage", "licenses");
         Resource resource = new ClassPathResource("static/3rdPartyLicenses.json");
         try {
@@ -51,6 +52,8 @@ public class HomeWebController {
             Map<String, List<Dependency>> data =
                     mapper.readValue(json, new TypeReference<Map<String, List<Dependency>>>() {});
             model.addAttribute("dependencies", data.get("dependencies"));
+            model.addAttribute("requestURI", request.getRequestURI());
+
         } catch (IOException e) {
             logger.error("exception", e);
         }
@@ -58,8 +61,10 @@ public class HomeWebController {
     }
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String home(Model model, HttpServletRequest request) {
         model.addAttribute("currentPage", "home");
+        model.addAttribute("title", "Free PDF Online Tools");
+        model.addAttribute("requestURI", request.getRequestURI());
         return "home";
     }
 
