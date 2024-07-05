@@ -32,8 +32,9 @@ public class HomeWebController {
 
     @GetMapping("/about")
     @Hidden
-    public String gameForm(Model model) {
+    public String gameForm(Model model, final HTTPServletRequest request) {
         model.addAttribute("currentPage", "about");
+        model.addAttribute("requestURI", request.getRequestURI());
         return "about";
     }
 
