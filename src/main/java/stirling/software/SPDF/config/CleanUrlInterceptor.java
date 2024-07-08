@@ -63,6 +63,14 @@ public class CleanUrlInterceptor implements HandlerInterceptor {
                 return false;
             }
         }
+
+        // redirect all slash to no-none slash
+        String requestURI = request.getRequestURI();
+        if (requestURI.endsWith("/") && requestURI.length() > 1) {
+            response.sendRedirect(request.getContextPath() + requestURI.substring(0, requestURI.length() - 1));
+            return false;
+        }
+
         return true;
     }
 
