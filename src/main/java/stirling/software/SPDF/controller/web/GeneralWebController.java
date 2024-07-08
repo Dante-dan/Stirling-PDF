@@ -31,6 +31,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import stirling.software.SPDF.utils.UrlUtils;
 
 @Controller
 @Tag(name = "General", description = "General APIs")
@@ -42,7 +43,7 @@ public class GeneralWebController {
     @Hidden
     public String pipelineForm(Model model, HttpServletRequest request) {
         model.addAttribute("currentPage", "pipeline");
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         List<String> pipelineConfigs = new ArrayList<>();
         List<Map<String, String>> pipelineConfigsWithNames = new ArrayList<>();
 
@@ -98,7 +99,7 @@ public class GeneralWebController {
     @GetMapping("/merge-pdfs")
     @Hidden
     public String mergePdfForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "merge-pdfs");
         return "merge-pdfs";
     }
@@ -106,7 +107,7 @@ public class GeneralWebController {
     @GetMapping("/split-pdf-by-sections")
     @Hidden
     public String splitPdfBySections(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "split-pdf-by-sections");
         return "split-pdf-by-sections";
     }
@@ -114,7 +115,7 @@ public class GeneralWebController {
     @GetMapping("/view-pdf")
     @Hidden
     public String ViewPdfForm2(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "view-pdf");
         return "view-pdf";
     }
@@ -122,7 +123,7 @@ public class GeneralWebController {
     @GetMapping("/multi-tool")
     @Hidden
     public String multiToolForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "multi-tool");
         return "multi-tool";
     }
@@ -130,7 +131,7 @@ public class GeneralWebController {
     @GetMapping("/remove-pages")
     @Hidden
     public String pageDeleter(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "remove-pages");
         return "remove-pages";
     }
@@ -138,7 +139,7 @@ public class GeneralWebController {
     @GetMapping("/pdf-organizer")
     @Hidden
     public String pageOrganizer(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "pdf-organizer");
         return "pdf-organizer";
     }
@@ -146,7 +147,7 @@ public class GeneralWebController {
     @GetMapping("/extract-page")
     @Hidden
     public String extractPages(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "extract-page");
         return "extract-page";
     }
@@ -154,7 +155,7 @@ public class GeneralWebController {
     @GetMapping("/pdf-to-single-page")
     @Hidden
     public String pdfToSinglePage(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "pdf-to-single-page");
         return "pdf-to-single-page";
     }
@@ -162,7 +163,7 @@ public class GeneralWebController {
     @GetMapping("/rotate-pdf")
     @Hidden
     public String rotatePdfForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "rotate-pdf");
         return "rotate-pdf";
     }
@@ -170,7 +171,7 @@ public class GeneralWebController {
     @GetMapping("/split-pdfs")
     @Hidden
     public String splitPdfForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "split-pdfs");
         return "split-pdfs";
     }
@@ -178,7 +179,7 @@ public class GeneralWebController {
     @GetMapping("/sign")
     @Hidden
     public String signForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "sign");
         model.addAttribute("fonts", getFontNames());
         return "sign";
@@ -187,7 +188,7 @@ public class GeneralWebController {
     @GetMapping("/multi-page-layout")
     @Hidden
     public String multiPageLayoutForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "multi-page-layout");
         return "multi-page-layout";
     }
@@ -195,7 +196,7 @@ public class GeneralWebController {
     @GetMapping("/scale-pages")
     @Hidden
     public String scalePagesFrom(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "scale-pages");
         return "scale-pages";
     }
@@ -203,7 +204,7 @@ public class GeneralWebController {
     @GetMapping("/split-by-size-or-count")
     @Hidden
     public String splitBySizeOrCount(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "split-by-size-or-count");
         return "split-by-size-or-count";
     }
@@ -211,7 +212,7 @@ public class GeneralWebController {
     @GetMapping("/overlay-pdf")
     @Hidden
     public String overlayPdf(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "overlay-pdf");
         return "overlay-pdf";
     }
@@ -316,7 +317,7 @@ public class GeneralWebController {
     @GetMapping("/crop")
     @Hidden
     public String cropForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "crop");
         return "crop";
     }
@@ -324,7 +325,7 @@ public class GeneralWebController {
     @GetMapping("/auto-split-pdf")
     @Hidden
     public String autoSPlitPDFForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "auto-split-pdf");
         return "auto-split-pdf";
     }

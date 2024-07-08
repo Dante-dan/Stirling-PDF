@@ -14,4 +14,20 @@ public class UrlUtils {
 
         return scheme + "://" + serverName + ":" + serverPort + contextPath;
     }
+
+    public static String getCurrentPath(HttpServletRequest request) {
+        String path = request.getRequestURI();
+
+        // 如果是根路径，则直接返回'/'
+        if (path.equals("/")) {
+            return "/";
+        }
+
+        // 去掉末尾的斜杠
+        if (path.endsWith("/")) {
+            path = path.substring(0, path.length() - 1);
+        }
+
+        return path;
+    }
 }

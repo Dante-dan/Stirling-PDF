@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import stirling.software.SPDF.utils.UrlUtils;
 
 @Controller
 @Tag(name = "Misc", description = "Miscellaneous APIs")
@@ -22,7 +23,7 @@ public class OtherWebController {
     @GetMapping("/compress-pdf")
     @Hidden
     public String compressPdfForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "compress-pdf");
         return "misc/compress-pdf";
     }
@@ -32,14 +33,14 @@ public class OtherWebController {
     public ModelAndView extractImageScansForm(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("misc/extract-image-scans");
         modelAndView.addObject("currentPage", "extract-image-scans");
-        modelAndView.addObject("requestURI", request.getRequestURI());
+        modelAndView.addObject("requestURI", UrlUtils.getCurrentPath(request));
         return modelAndView;
     }
 
     @GetMapping("/show-javascript")
     @Hidden
     public String extractJavascriptForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "show-javascript");
         return "misc/show-javascript";
     }
@@ -47,7 +48,7 @@ public class OtherWebController {
     @GetMapping("/stamp")
     @Hidden
     public String stampForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "stamp");
         return "misc/stamp";
     }
@@ -55,7 +56,7 @@ public class OtherWebController {
     @GetMapping("/add-page-numbers")
     @Hidden
     public String addPageNumbersForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "add-page-numbers");
         return "misc/add-page-numbers";
     }
@@ -63,7 +64,7 @@ public class OtherWebController {
     @GetMapping("/fake-scan")
     @Hidden
     public String fakeScanForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "fake-scan");
         return "misc/fake-scan";
     }
@@ -71,7 +72,7 @@ public class OtherWebController {
     @GetMapping("/extract-images")
     @Hidden
     public String extractImagesForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "extract-images");
         return "misc/extract-images";
     }
@@ -79,7 +80,7 @@ public class OtherWebController {
     @GetMapping("/flatten")
     @Hidden
     public String flattenForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "flatten");
         return "misc/flatten";
     }
@@ -87,7 +88,7 @@ public class OtherWebController {
     @GetMapping("/change-metadata")
     @Hidden
     public String addWatermarkForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "change-metadata");
         return "misc/change-metadata";
     }
@@ -95,7 +96,7 @@ public class OtherWebController {
     @GetMapping("/compare")
     @Hidden
     public String compareForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "compare");
         return "misc/compare";
     }
@@ -103,7 +104,7 @@ public class OtherWebController {
     @GetMapping("/print-file")
     @Hidden
     public String printFileForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "print-file");
         return "misc/print-file";
     }
@@ -127,7 +128,7 @@ public class OtherWebController {
         ModelAndView modelAndView = new ModelAndView("misc/ocr-pdf");
         List<String> languages = getAvailableTesseractLanguages();
         Collections.sort(languages);
-        modelAndView.addObject("requestURI", request.getRequestURI());
+        modelAndView.addObject("requestURI", UrlUtils.getCurrentPath(request));
         modelAndView.addObject("languages", languages);
         modelAndView.addObject("currentPage", "ocr-pdf");
         return modelAndView;
@@ -136,7 +137,7 @@ public class OtherWebController {
     @GetMapping("/add-image")
     @Hidden
     public String overlayImage(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "add-image");
         return "misc/add-image";
     }
@@ -144,7 +145,7 @@ public class OtherWebController {
     @GetMapping("/adjust-contrast")
     @Hidden
     public String contrast(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "adjust-contrast");
         return "misc/adjust-contrast";
     }
@@ -152,7 +153,7 @@ public class OtherWebController {
     @GetMapping("/repair")
     @Hidden
     public String repairForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "repair");
         return "misc/repair";
     }
@@ -160,7 +161,7 @@ public class OtherWebController {
     @GetMapping("/remove-blanks")
     @Hidden
     public String removeBlanksForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "remove-blanks");
         return "misc/remove-blanks";
     }
@@ -168,7 +169,7 @@ public class OtherWebController {
     @GetMapping("/remove-annotations")
     @Hidden
     public String removeAnnotationsForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "remove-annotations");
         return "misc/remove-annotations";
     }
@@ -176,7 +177,7 @@ public class OtherWebController {
     @GetMapping("/auto-crop")
     @Hidden
     public String autoCropForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "auto-crop");
         return "misc/auto-crop";
     }
@@ -184,7 +185,7 @@ public class OtherWebController {
     @GetMapping("/auto-rename")
     @Hidden
     public String autoRenameForm(Model model, HttpServletRequest request) {
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("currentPage", "auto-rename");
         return "misc/auto-rename";
     }

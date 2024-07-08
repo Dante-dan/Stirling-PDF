@@ -25,6 +25,7 @@ import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.servlet.http.HttpServletRequest;
 import stirling.software.SPDF.model.ApplicationProperties;
 import stirling.software.SPDF.model.Dependency;
+import stirling.software.SPDF.utils.UrlUtils;
 
 @Controller
 public class HomeWebController {
@@ -35,7 +36,7 @@ public class HomeWebController {
     @Hidden
     public String gameForm(Model model, HttpServletRequest request) {
         model.addAttribute("currentPage", "about");
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         model.addAttribute("title", "Free PDF Online Tools");
         return "about";
     }
@@ -52,7 +53,7 @@ public class HomeWebController {
             Map<String, List<Dependency>> data =
                     mapper.readValue(json, new TypeReference<Map<String, List<Dependency>>>() {});
             model.addAttribute("dependencies", data.get("dependencies"));
-            model.addAttribute("requestURI", request.getRequestURI());
+            model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
 
         } catch (IOException e) {
             logger.error("exception", e);
@@ -64,7 +65,7 @@ public class HomeWebController {
     public String home(Model model, HttpServletRequest request) {
         model.addAttribute("currentPage", "home");
         model.addAttribute("title", "Free PDF Online Tools");
-        model.addAttribute("requestURI", request.getRequestURI());
+        model.addAttribute("requestURI", UrlUtils.getCurrentPath(request));
         return "home";
     }
 
